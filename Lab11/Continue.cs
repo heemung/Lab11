@@ -46,7 +46,7 @@ namespace Lab11
                 }
                 else
                 {
-                    Console.WriteLine("Please enter either 'yes' or 'no'");
+                    Console.WriteLine("Please enter either 'yes' or 'no'\n");
                     StringCont = Console.ReadLine().ToLower();
                 }
             }

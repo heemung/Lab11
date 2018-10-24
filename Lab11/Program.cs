@@ -13,17 +13,29 @@ namespace Lab11
         {
             string userInputCat, yesOrNo;
             bool userContinue = true;
+
+            //init a class continue
             Continue shouldContinue = new Continue();
+            //made a method passing array list to new local array list.
             ArrayList allMovies = AddingMovies();
+
             Console.WriteLine("Welcome to the Movie List Application!" +
-                "\nThere are 100 movies in this list.");
+                "\nThere are 10 movies in this list.");
+
+            //yes no loop
             while (userContinue)
             {
-                
                 Console.WriteLine("\nPlease enter a category");
                 userInputCat = Console.ReadLine();
 
+                //made array list to add movie names and list for abc sort later
                 ArrayList danDoesntLike = new ArrayList();
+
+                //clears the array from running the previous userContinue loop
+                danDoesntLike.Clear();
+
+                //each, array object checks the category to the user string
+                //if matches it .adds the name of movie object to the other array.
                 foreach (Movies m in allMovies)
                 {
                     if (m.TheMovieCategory == userInputCat)
@@ -32,7 +44,8 @@ namespace Lab11
                     }
 
                 }
-
+                //if the array has no objects we determin the category doesnt exist
+                //else the array has objects so sort them and write them out
                 if (danDoesntLike.Count == 0)
                 {
                     Console.WriteLine("That Category Doesn't Exist.\nPlease try again.");
@@ -46,7 +59,10 @@ namespace Lab11
                         Console.WriteLine(s);
                     }
                 }
-                Console.WriteLine("Do you wish to continue? 'yes' / 'no'");
+
+                //ask if user wants to continue from the continue class.
+                //answerValid returns a bool which is assigned to the while loop above
+                Console.WriteLine("\nDo you wish to continue? 'yes' / 'no'");
                 yesOrNo = Console.ReadLine().ToLower();
                 userContinue = shouldContinue.AnswerValid(yesOrNo);
             }
