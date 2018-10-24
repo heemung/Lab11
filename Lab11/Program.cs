@@ -12,32 +12,34 @@ namespace Lab11
         static void Main(string[] args)
         {
             string userInputCat;
-            Movies mRef = new Movies("temp", "temp");
+            Movies mRef = new Movies();
             ArrayList allMovies = AddingMovies();
 
             Console.WriteLine("Please enter a category");
-            // bool newbool = (mRef.TheMovieCategory)allMovies.Contains(userInputCat.);
-            //bool newBool = allMovies.Contains(mRef.TheMovieCategory == userInputCat);
             userInputCat = Console.ReadLine();
-            mRef.TheMovieCategory = userInputCat;
-            bool newBool = allMovies.Contains(mRef.TheMovieCategory);
 
-            if (allMovies.Contains(mRef.TheMovieCategory))
-            {
+            ArrayList danDoesntLike = new ArrayList();
                 foreach (Movies m in allMovies)
                 {
                     if (m.TheMovieCategory == userInputCat)
                     {
-                        Console.WriteLine(m.TheMovieName);
+                        danDoesntLike.Add(m.TheMovieName);
                     }
 
                 }
-            }
-            else
-            {
-                Console.WriteLine("not avaible");
-            }
 
+                if(danDoesntLike.Count == 0)
+                {
+                    Console.WriteLine("No movies exist in this category.");
+                }
+                else
+                {
+                    foreach(string s in danDoesntLike)
+                    {
+                    Console.WriteLine(s);
+                    }
+                }
+            
 /*
             foreach (Movies m in AddingMovies())
             {
@@ -63,7 +65,8 @@ namespace Lab11
                 new Movies("Finding Nemo", "animated"),
                 new Movies("Halloween", "horror"),
                 new Movies("The Love Boat", "drama"),
-                new Movies("Another Teen Movie", "drama")};
+                new Movies("Another Teen Movie", "drama"),
+                new Movies("This Test Movie", "test")};
 
             return allMovies;
         }

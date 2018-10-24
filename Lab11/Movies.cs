@@ -8,6 +8,10 @@ namespace Lab11
 {
     class Movies
     {
+        public Movies ()
+        {
+
+        }
         public Movies(string movieName, string moviecategory)
         {
 
