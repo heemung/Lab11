@@ -30,30 +30,23 @@ namespace Lab11
 
                 if(danDoesntLike.Count == 0)
                 {
-                    Console.WriteLine("No movies exist in this category.");
+                    Console.WriteLine("That Category Doesn't Exist.\nPlease try again.");
                 }
                 else
                 {
+                Console.WriteLine("\nMovies in {0} category are:",userInputCat);
+                danDoesntLike.Sort();
                     foreach(string s in danDoesntLike)
                     {
                     Console.WriteLine(s);
                     }
                 }
-            
-/*
-            foreach (Movies m in AddingMovies())
-            {
-                if(m.TheMovieCategory == userInputCat)
-                {
-                    Console.WriteLine(m.TheMovieName);
-                }
-            }
-            */
-
+           
            Console.ReadLine();
     
         }
 
+        //added movies class objects at arraylist init
         public static ArrayList AddingMovies()
         {
                 ArrayList allMovies = new ArrayList{new Movies("The Maxtrix", "scifi"),
@@ -65,8 +58,7 @@ namespace Lab11
                 new Movies("Finding Nemo", "animated"),
                 new Movies("Halloween", "horror"),
                 new Movies("The Love Boat", "drama"),
-                new Movies("Another Teen Movie", "drama"),
-                new Movies("This Test Movie", "test")};
+                new Movies("Another Teen Movie", "drama")};
 
             return allMovies;
         }
