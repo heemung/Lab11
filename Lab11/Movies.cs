@@ -8,10 +8,12 @@ namespace Lab11
 {
     class Movies
     {
-        public Movies ()
+        /*public Movies ()
         {
 
-        }
+        }*/ //dont need anymore
+
+        // constructor that inits two things on creation. Name and category.
         public Movies(string movieName, string moviecategory)
         {
 
@@ -19,18 +21,7 @@ namespace Lab11
             TheMovieCategory = moviecategory;
         }
 
-        private int categoryCode;
-        public int TheCatergoryCode
-        {
-            get
-            {
-                return categoryCode;
-            }
-            set
-            {
-                categoryCode = value;
-            }
-        }
+        //get sets name then assigns them to private.
         private string movieName;
         public string TheMovieName
         {
@@ -43,6 +34,8 @@ namespace Lab11
                 movieName = value;
             }
         }
+
+        //get sets catergory then assigns them to private.
         private string moviecategory;
         public string TheMovieCategory
         {

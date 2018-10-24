@@ -11,14 +11,19 @@ namespace Lab11
     {
         static void Main(string[] args)
         {
-            string userInputCat;
-            Movies mRef = new Movies();
+            string userInputCat, yesOrNo;
+            bool userContinue = true;
+            Continue shouldContinue = new Continue();
             ArrayList allMovies = AddingMovies();
+            Console.WriteLine("Welcome to the Movie List Application!" +
+                "\nThere are 100 movies in this list.");
+            while (userContinue)
+            {
+                
+                Console.WriteLine("\nPlease enter a category");
+                userInputCat = Console.ReadLine();
 
-            Console.WriteLine("Please enter a category");
-            userInputCat = Console.ReadLine();
-
-            ArrayList danDoesntLike = new ArrayList();
+                ArrayList danDoesntLike = new ArrayList();
                 foreach (Movies m in allMovies)
                 {
                     if (m.TheMovieCategory == userInputCat)
@@ -28,21 +33,25 @@ namespace Lab11
 
                 }
 
-                if(danDoesntLike.Count == 0)
+                if (danDoesntLike.Count == 0)
                 {
                     Console.WriteLine("That Category Doesn't Exist.\nPlease try again.");
                 }
                 else
                 {
-                Console.WriteLine("\nMovies in {0} category are:",userInputCat);
-                danDoesntLike.Sort();
-                    foreach(string s in danDoesntLike)
+                    Console.WriteLine("\nMovies in {0} category are:", userInputCat);
+                    danDoesntLike.Sort();
+                    foreach (string s in danDoesntLike)
                     {
-                    Console.WriteLine(s);
+                        Console.WriteLine(s);
                     }
                 }
-           
-           Console.ReadLine();
+                Console.WriteLine("Do you wish to continue? 'yes' / 'no'");
+                yesOrNo = Console.ReadLine().ToLower();
+                userContinue = shouldContinue.AnswerValid(yesOrNo);
+            }
+            Console.WriteLine("\nGoodbye");
+            Console.ReadLine();
     
         }
 

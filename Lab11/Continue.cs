@@ -8,9 +8,10 @@ namespace Lab11
 {
     class Continue
     {
-        public Continue(string s)
+        //does not need anything in constructor, using property only.
+        public Continue()
         {
-            StringCont = s;
+
         }
 
         private string stringCont;
@@ -28,10 +29,9 @@ namespace Lab11
 
         // user continue loop and if statement , will return bool. Will only 
         //return if yes or no
-        public bool AnswerValid()
+        public bool AnswerValid(string s)
         {
-            Console.WriteLine("Do you wish to continue? 'yes' / 'no'");
-            stringCont = Console.ReadLine().ToLower();
+            stringCont = s;
             while (true)
             {
 
